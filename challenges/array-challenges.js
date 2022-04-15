@@ -5,17 +5,13 @@
 //1. Write a method which will flatten any array
 /*inputArray = [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]]
 function flatten(inputArray) => output [1, 2, 3, 4, 5, 6, 7, 8, 9]*/
-// function flatten(arr) {
-//     return arr.reduce(function (flat, toFlatten) {
-//       return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
-//     }, []);
-//   }
-  const inputArr = [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]]
-  const flatten = (arr) => {
-    return arr.reduce((total, cur) => {
-      return total.concat(Array.isArray(cur) ? flatten(cur) : cur)
-    },[])
+function flatten(arr) {
+    return arr.reduce(function (flat, toFlatten) {
+      return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+    }, []);
   }
+const inputArr = [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]]
+ 
 const arr1 = flatten(inputArr); // [1, 1.1, 2, 3, 4, 5]
 console.log(`\n1. Write a method which will flatten any array [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]]}: \n O/P: ${arr1}`)
 
@@ -44,4 +40,19 @@ const findNumber = (a) => {
 }
 const foundNumber = findNumber(9)
 console.log(`\n3. Find element from array. if not exist then find smaller number than provided number  ${arr2}:\n O/P: ${foundNumber}`)
+
+
+//4. Given a string, reverse each word in the sentence
+var string = "Welcome to this Javascript Guide!";
+
+// Output becomes !ediuG tpircsavaJ siht ot emocleW
+var reverseEntireSentence = reverseBySeparator(string, "");
+
+// Output becomes emocleW ot siht tpircsavaJ !ediuG
+var reverseEachWord = reverseBySeparator(reverseEntireSentence, " ");
+
+function reverseBySeparator(string, separator) {
+  return string.split(separator).reverse().join(separator);
+}
+console.log(`\n 4. Given a string, reverse each word in the sentence ${string}: \n O/P ${reverseEachWord} or \n ${reverseEntireSentence}`)
 
