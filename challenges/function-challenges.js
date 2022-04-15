@@ -2,7 +2,6 @@
 
 - The function can be designed to return another function which maintains the closure over the previous sum value
 - The check for breaking condition can be added using the argument check for `undefined`
-- 3rd solution uses the property on function to store the total which will be updated on each call hence the same function can be returned */
 
 // Example
 /*sum(2)(4)(6)(1)();          // 13
