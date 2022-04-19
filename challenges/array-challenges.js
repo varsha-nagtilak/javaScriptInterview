@@ -35,7 +35,7 @@ findRepeatingChar(str)
 //3. Find element from array. if not exist then find smaller number than provided number
 const arr2 = [1, 2, 4, 5, 5, 7 , 9]
 const findNumber = (a) => {
-    const n = arr2.filter((cur) => { return  cur < a })
+    const n = arr2.filter((cur) => { return  cur <= a })
     return n[n.length - 1]
 }
 const foundNumber = findNumber(9)
@@ -56,3 +56,65 @@ function reverseBySeparator(string, separator) {
 }
 console.log(`\n 4. Given a string, reverse each word in the sentence ${string}: \n O/P ${reverseEachWord} or \n ${reverseEntireSentence}`)
 
+
+//5. Write a function to find count character occurrence from string 
+// input: "dddkkkl"
+let objQ5 = {}
+let strQ5 = "dddkkkl".split("");
+const findCharCount = (str) => {
+  str.forEach((element) => {
+    if(objQ5.hasOwnProperty(element)) {
+      objQ5[element] = objQ5[element] + 1;
+     } else {
+      objQ5[element] = 1
+     }
+  });
+}
+findCharCount(strQ5)
+console.log(`Q5. Write a function to find count character occurrence from string: `, objQ5)
+
+
+//6. Write function to for fibonacci series like 0, 1, 1, 2, 3, 5, 8, 13, 21
+//input: 0, 1, 1, 2, 3, 5, 8, 13, 21
+
+const createFebo = (n) => {
+   var n1 = 0, n2 = 1, nextNum;
+   let fiboNums = [0, 1];
+   while(n > 0) {
+    nextNum = n1 + n2;
+     n1 = n2;
+     n2 = nextNum;
+     fiboNums.push(nextNum)
+     n--;
+   }
+   console.log(fiboNums)
+}
+createFebo(21)
+
+
+//6. Convert nestead object to flat object
+const nesteadObj1 = {
+  nane: "Varsha",
+  age: 30,
+  address: {
+  city: "Pune",
+  state: "Maharashtra",
+  }
+  }
+let  flatObj = {}
+const createFlatObject = (toFlat) => {  
+  for (let k in toFlat) {
+    typeof(toFlat[k]) == 'object' ?  createFlatObject(toFlat[k]) : flatObj[k] = toFlat[k];   
+  }
+  
+}
+createFlatObject(nesteadObj1)
+console.log(flatObj)
+
+//7. Create Currying function to print "Hello Word" 
+// console.log(curryingFunction("Hello")("Word"))
+
+const curryingFunction = (a) => {
+  return (b) => { return `${a} ${b}`}
+}
+console.log(curryingFunction("Hello")("Word"))
