@@ -50,3 +50,28 @@ function multiplyThreeNumbers(a) {
 }
   const multiply3result = multiplyThreeNumbers(2)(3)(4)
   console.log(multiply3result)
+
+//4. Here’s how to write your own memoize function
+ const add = (a) => {
+    return a + 10;
+  }
+  
+  const memoize = (fn) => {
+   let cache = {};
+   return (...arg) => {
+      let n = arg[0];
+      if(n in cache) {
+          console.log("Returning result from cache") 
+          return cache[n]; 
+        } else {
+           console.log("Calculating result") 
+           const val = fn(n);
+           cache[n] = val;
+           return val         
+        }
+   } 
+  }
+  const func = memoize(add)
+  console.log(func(3))
+  console.log(func(6))
+  console.log(func(6))

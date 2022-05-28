@@ -118,3 +118,12 @@ const curryingFunction = (a) => {
   return (b) => { return `${a} ${b}`}
 }
 console.log(curryingFunction("Hello")("Word"))
+
+//8. Wrate function for "ABC".hello() 
+// OP: Hello ABC
+
+String.prototype.hello = function () {
+  return "Hello " + this.valueOf();
+}
+"ABC".hello()
+
